@@ -1,2 +1,4 @@
-config/10-alias.zsh/19-local_config.zsh
+*.swp
+config/10-alias.zsh/local.zsh
+config/20-function.zsh/local.zsh/
 .last-update
