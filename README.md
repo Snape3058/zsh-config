@@ -31,8 +31,7 @@ stores the environment variable that should be set ahead of time. The
 name aliasing are located in directory `10-alias.zsh` and the functions
 are located in directory `20-function.zsh`.
 
-The local aliases are stored in file `10-alias.zsh/local.zsh`. The local
-functions are stored in directory `20-function.zsh/local.zsh/`.
+You can put your local configurations in `config/90-local.zsh/`.
 
 ### Scripts
 
