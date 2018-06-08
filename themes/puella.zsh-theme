@@ -4,7 +4,7 @@
 # e.g. username@domain for normal or username@vim for vim inner shell
 # use PUELLA_THEME_PROMPT_COLOR variable to adjust its color
 if [[ -z "$PUELLA_THEME_PROMPT_COLOR" ]]; then
-    PUELLA_THEME_PROMPT_COLOR="yellow"
+    PUELLA_THEME_PROMPT_COLOR="green"
 fi
 function setPromptTitle()
 {
