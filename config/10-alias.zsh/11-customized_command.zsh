@@ -47,6 +47,9 @@ alias syntax-check-g++='g++ `[ -e ".syntastic.config" ] && cat ".syntastic.confi
 alias vim='vim -O'
 alias temp.cpp='cd ~/temp && vim temp.cpp && cd -'
 
+# tmux
+alias tmux='tmux -2'
+
 # make
 alias make='make -j`nproc`'
 
