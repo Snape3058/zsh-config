@@ -22,6 +22,15 @@ function setPromptLevel()
 	fi
 }
 
+# set variable identifying the chroot you work in
+function setPromptSChroot () {
+    if [ -r /etc/debian_chroot ]
+    then
+        debian_chroot=$(cat /etc/debian_chroot)
+        echo "%{$fg_bold[white]%}[$debian_chroot] "
+    fi
+}
+
 # echo last state on rprompt when non-zero
 if [[ -z "$PUELLA_THEME_ENABLE_LASTSTATE" ]]; then
     PUELLA_THEME_ENABLE_LASTSTATE=0
@@ -46,7 +55,7 @@ setRPromptClock () {
 }
 
 # !PROMPT!
-PROMPT='%{$reset_color%}$(setPromptTitle)$(setPromptLevel)%{$fg_bold[white]%}:%{$fg_bold[cyan]%}%~$(git_prompt_info)%{$fg_bold[yellow]%}%(!.#.$)%{$reset_color%} '
+PROMPT='$(setPromptSChroot)%{$reset_color%}$(setPromptTitle)$(setPromptLevel)%{$fg_bold[white]%}:%{$fg_bold[cyan]%}%~$(git_prompt_info)%{$fg_bold[yellow]%}%(!.#.$)%{$reset_color%} '
 
 # !RPROMPT!
 RPROMPT='%{$reset_color%}$(setRPromptRetVal) $(setRPromptClock)%{$reset_color%}'
