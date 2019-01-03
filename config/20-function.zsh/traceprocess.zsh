@@ -8,12 +8,18 @@ function traceprocess()
 	if ! [ "$1" -eq "$1" ] 2>/dev/null; then
 		return 1
 	fi
+
+    # output header and pid 1
 	if ((1 == $1)); then
 		ps -o pid -o command $1
 		return $?
 	fi
-	traceprocess `ps -f $1 | tail -n 1 | awk '{print $3}'`
-	ps -o pid -o command $1 | tail -n 1
+
+    # recursion
+	traceprocess `ps h -o ppid $1`
+
+    # output current pid
+	ps h -o pid -o command $1
 	return $?
 }
 
