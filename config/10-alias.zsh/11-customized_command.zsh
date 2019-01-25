@@ -54,8 +54,9 @@ alias tmux='tmux -2'
 alias make='make -j`nproc`'
 
 # curl
-alias google='proxychains curl -s -I https://www.google.co.jp/ | head -n 1'
-alias baidu='curl -s -I https://www.baidu.com/ | head -n 1'
+alias google='proxychains curl -s -I -L https://www.google.com/ | head -n 1'
+alias baidu='curl -s -I -L https://www.baidu.com/ | head -n 1'
+alias g204='curl -s -I -L g.cn/generate_204 | head -n 1'
 alias myip='curl myip.ipip.net'
 
 # mktemp
