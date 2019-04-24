@@ -11,6 +11,7 @@ alias l='ls -F'
 # cd
 alias cdlib='cd `pwd | sed "s/include/lib/g"`'
 alias cdinc='cd `pwd | sed "s/lib/include/g"`'
+alias cdp='cd -P'
 
 # less
 alias less='less -R -x4'
