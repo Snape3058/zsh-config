@@ -63,4 +63,4 @@ alias tempdir='cd `mktemp -d`'
 alias tempdirhere='cd `mktemp -d -p .`'
 
 # tree
-alias tree='tree -I ".git|.svn" -a'
+alias tree='tree -I ".git|.svn|[Bb]uild" -a'
