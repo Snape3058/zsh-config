@@ -29,6 +29,12 @@ alias -s html='vim'
 alias -s php='vim'
 alias -s css='vim'
 alias -s js='vim'
+  # GDB:
+function __gdbinit__ {
+    cgdb -ex "source $1"
+}
+alias -s gdb='__gdbinit__'
+alias -s gdbinit='__gdbinit__'
 
 # configurations for X
   # Images:
