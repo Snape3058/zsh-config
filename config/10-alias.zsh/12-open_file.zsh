@@ -31,7 +31,13 @@ alias -s css='vim'
 alias -s js='vim'
   # GDB:
 function __gdbinit__ {
-    cgdb -ex "source $1"
+    gdbinit=$1
+    shift
+    args=()
+    for i in $@; do
+        args+=("-ex" $i)
+    done
+    cgdb -ex "source $gdbinit" $(echo $args)
 }
 alias -s gdb='__gdbinit__'
 alias -s gdbinit='__gdbinit__'
