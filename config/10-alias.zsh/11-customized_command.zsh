@@ -36,11 +36,10 @@ alias datetime='date "+%Y-%m-%d_%H:%M:%S"'
 alias datestr='date "+%Y-%m-%d"'
 alias timestr='date "+%H:%M:%S"'
 
-# gcc/g++
+# gcc / llvm
 alias gtest='gcc -D __GTEST_ON__ -lgtest -lgtest_main'
 alias gtest++='g++ -D __GTEST_ON__ -lgtest -lgtest_main'
-alias syntax-check-gcc='gcc `[ -e ".syntastic_cpp_config" ] && cat ".syntastic_cpp_config"` -fsyntax-only'
-alias syntax-check-g++='g++ `[ -e ".syntastic_cpp_config" ] && cat ".syntastic_cpp_config"` -fsyntax-only'
+alias llvm='clang -emit-llvm -S -Xclang -disable-O0-optnone'
 
 # vim
 alias vim='vim -O'
