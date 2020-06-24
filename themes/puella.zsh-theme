@@ -50,7 +50,7 @@ fi
 setRPromptClock () {
 	if (($PUELLA_THEME_ENABLE_CLOCK))
 	then
-		echo "%{$fg_bold[white]%}[$(date +%H:%M)]"
+		echo "%{$fg_bold[white]%}[$(date +%T)]"
 	fi
 }
 
