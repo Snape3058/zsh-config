@@ -35,5 +35,17 @@ function httpserver
         return 1
     fi
 
-    screen -d -m -S $name sh -c "cd $dir && $sudo python3 -m http.server $port || read"
+    old_pid=`lsof -i :$port | grep 'python3' | awk '{print $2}'`
+    if [ -n "$old_pid" ]; then
+        read -q "yn?Kill current server on port $port with pid $old_pid? (y/n) "
+        echo ""
+        if [ "y" = $yn ]; then
+            httpserver-kill $port || return 1
+        else
+            echo "Aborted."
+            return 1
+        fi
+    fi
+
+    screen -d -m -S $name sh -c "cd $dir && pwd && $sudo python3 -m http.server $port || read"
 }
