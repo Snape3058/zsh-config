@@ -1,5 +1,15 @@
 #!/usr/bin/env zsh
 
+function httpserver-kill () {
+    port=8080
+    if [ -n "$1" ]; then
+            port=$1
+    fi
+
+    kill `lsof -i :$port | grep 'python3' | awk '{print $2}'`
+    return $?
+}
+
 function httpserver
 {
     port=8080
