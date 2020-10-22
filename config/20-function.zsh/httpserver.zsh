@@ -25,13 +25,13 @@ function httpserver
         dir="$2"
     fi
 
-    name="$0"
+    name="$0.$port"
     if [ -n "$3" ]; then
         name="$3"
     fi
 
     if [ $# -eq 0 ] || [ $# -gt 3 ] || [ ! -d "$dir" ]; then
-        echo "httpserver <port> [dir=pwd] [session_name='$0']"
+        echo "httpserver <port> [dir=pwd] [session_name='$0.<port>']"
         return 1
     fi
 
