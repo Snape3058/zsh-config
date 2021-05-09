@@ -17,6 +17,9 @@ function setPromptTitle()
 function setPromptLevel()
 {
 	ZSH_LEVEL=$((`ps | wc -l` - 5))
+    if [[ -n "$PUELLA_THEME_DOWNGRADE_PROMPT_LEVEL" ]]; then
+        ZSH_LEVEL=$(($ZSH_LEVEL - $PUELLA_THEME_DOWNGRADE_PROMPT_LEVEL))
+    fi
 	if (( $ZSH_LEVEL > 1 )); then
 		echo "%{$fg_bold[white]%}($ZSH_LEVEL)"
 	fi
