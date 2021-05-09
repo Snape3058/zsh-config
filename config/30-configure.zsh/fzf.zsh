@@ -7,8 +7,8 @@ if (($?)); then
     return 1
 fi
 
-source /usr/share/fzf/completion.zsh
-source /usr/share/fzf/key-bindings.zsh
+source "$HOME/.local/share/fzf/completion.zsh"
+source "$HOME/.local/share/fzf/key-bindings.zsh"
 
 if [ -n "$TMUX" ]; then
     alias fzf=fzf-tmux
