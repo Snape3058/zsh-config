@@ -11,20 +11,6 @@ function setPromptTitle()
     echo "%{$fg_bold[$PUELLA_THEME_PROMPT_COLOR]%}%n@%m"
 }
 
-# set recurive level of current shell
-# immplemented with ps
-# ! have bugs when a shell script is killed with ctrl-c
-function setPromptLevel()
-{
-	ZSH_LEVEL=$((`ps | wc -l` - 5))
-    if [[ -n "$PUELLA_THEME_DOWNGRADE_PROMPT_LEVEL" ]]; then
-        ZSH_LEVEL=$(($ZSH_LEVEL - $PUELLA_THEME_DOWNGRADE_PROMPT_LEVEL))
-    fi
-	if (( $ZSH_LEVEL > 1 )); then
-		echo "%{$fg_bold[white]%}($ZSH_LEVEL)"
-	fi
-}
-
 # set variable identifying the chroot you work in
 function setPromptSChroot () {
     if [ -r /etc/debian_chroot ]
@@ -58,7 +44,7 @@ setRPromptClock () {
 }
 
 # !PROMPT!
-PROMPT='$(setPromptSChroot)%{$reset_color%}$(setPromptTitle)$(setPromptLevel)%{$fg_bold[white]%}:%{$fg_bold[cyan]%}%~$(git_prompt_info)%{$fg_bold[yellow]%}%(!.#.$)%{$reset_color%} '
+PROMPT='$(setPromptSChroot)%{$reset_color%}$(setPromptTitle)%{$fg_bold[white]%}%(1j.(%j).):%{$fg_bold[cyan]%}%~$(git_prompt_info)%{$fg_bold[yellow]%}%(!.#.$)%{$reset_color%} '
 
 # !RPROMPT!
 RPROMPT='%{$reset_color%}$(setRPromptRetVal) $(setRPromptClock)%{$reset_color%}'
