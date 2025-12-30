@@ -1,4 +1,6 @@
-# vim:set syntax=zsh
+# vim: syntax=zsh
+# vim: tabstop=4
+# vim: shiftwidth=4
 
 # set main part of the prompt
 # e.g. username@domain for normal or username@vim for vim inner shell
@@ -25,11 +27,11 @@ if [[ -z "$PUELLA_THEME_ENABLE_LASTSTATE" ]]; then
     PUELLA_THEME_ENABLE_LASTSTATE=0
 fi
 setRPromptRetVal () {
-	local RETURN_VALUE=$?
-	if (($PUELLA_THEME_ENABLE_LASTSTATE))
-	then
-		echo "%{$fg_bold[red]%}%(?::$RETURN_VALUE)"
-	fi
+    local RETURN_VALUE=$?
+    if (($PUELLA_THEME_ENABLE_LASTSTATE))
+    then
+        echo "%{$fg_bold[red]%}%(?::$RETURN_VALUE)"
+    fi
 }
 
 # add a clock on the rprompt
@@ -37,10 +39,10 @@ if [[ -z "$PUELLA_THEME_ENABLE_CLOCK" ]]; then
     PUELLA_THEME_ENABLE_CLOCK=0
 fi
 setRPromptClock () {
-	if (($PUELLA_THEME_ENABLE_CLOCK))
-	then
-		echo "%{$fg_bold[white]%}[$(date +%T)]"
-	fi
+    if (($PUELLA_THEME_ENABLE_CLOCK))
+    then
+        echo "%{$fg_bold[white]%}[$(date +%T)]"
+    fi
 }
 
 # !PROMPT!
